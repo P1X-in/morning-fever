@@ -1,13 +1,7 @@
 *.sublime-*
 .idea
+.fscache
 morning-fever.iml
-.fscache
-
-.fscache
-
 export.cfg
 *.tmp
 *.keystore
-*export_android.cfg
-
-
