@@ -58,7 +58,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -4, 11, -3, 12, -2, 12, -1, 12, -65536, 12, -65535, 12, -65534, 12, -65533, 13 )
+tile_data = IntArray( -4, 11, -3, 12, -2, 12, -1, 12, -65536, 12, -65535, 12, -65534, 13, -65533, 14 )
 
 [node name="mornin_fever" type="Sprite" parent="center"]
 
@@ -73,7 +73,7 @@ texture = ExtResource( 3 )
 
 [node name="bum" parent="center" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 363.052, 86.6353 )
+transform/pos = Vector2( 383.052, 92.6353 )
 transform/scale = Vector2( 4, 4 )
 
 [node name="press_start" type="Label" parent="center"]
