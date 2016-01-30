@@ -12,4 +12,5 @@ func handle(event):
         if player == null:
             return
 
+        player.bind_keyboard()
         player.enter_game()

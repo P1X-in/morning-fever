@@ -14,6 +14,7 @@ var attacks = {}
 var is_attack_on_cooldown = false
 
 var input_handlers = []
+var key_handlers = []
 
 func _init(bag, player_id).(bag):
     self.bag = bag
@@ -28,10 +29,20 @@ func _init(bag, player_id).(bag):
     self.input_handlers = [
         preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0),
         preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 1),
-        #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 0, Globals.get("platform_input/xbox_right_stick_x")),
-        #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 1, Globals.get("platform_input/xbox_right_stick_y")),
-        #preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self)
     ]
+
+    self.key_handlers = [
+        preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 1, KEY_W, -1),
+        preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 1, KEY_S, 1),
+        preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 0, KEY_A, -1),
+        preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 0, KEY_D, 1)
+    ]
+
+func bind_keyboard():
+    var keyboard = self.bag.input.devices['keyboard']
+
+    for handler in self.key_handlers:
+        keyboard.register_handler(handler)
 
 func bind_gamepad(id):
     self.unbind_gamepad()
