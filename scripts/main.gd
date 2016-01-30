@@ -5,5 +5,7 @@ func _ready():
     self.set_process_input(true)
     self.set_fixed_process(true)
 
+    self.bag.intro.attach()
+
 func _input(event):
     self.bag.input.handle_event(event)
