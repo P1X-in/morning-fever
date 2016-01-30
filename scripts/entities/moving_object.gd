@@ -41,6 +41,7 @@ func modify_position(delta):
 
     current_motion = current_motion + motion_delta
 
+
     var speed_cap = self.MOVEMENT_SPEED_CAP
     if abs(current_motion.x) > speed_cap:
         if current_motion.x < 0:
@@ -58,6 +59,7 @@ func modify_position(delta):
         return
 
     current_motion = self.apply_friction(current_motion, delta)
+    current_motion.y = current_motion.y * 0.9
 
     self.avatar.move(current_motion)
     if (self.avatar.is_colliding()):
