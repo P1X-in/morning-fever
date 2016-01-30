@@ -7,3 +7,4 @@ func start_game():
     self.bag.intro.detach()
     self.bag.board.attach()
     self.bag.board.load_map('map1')
+    self.bag.camera.attach()

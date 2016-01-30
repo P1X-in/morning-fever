@@ -1,12 +1,12 @@
 
 var bag
 
-var player_template = preload("res://scripts/player.gd")
+var player_template #= preload("res://scripts/player.gd")
 var players = []
 
 func _init_bag(bag):
     self.bag = bag
-    self.bind_players()
+    #self.bind_players()
 
 func bind_players():
     self.players = [

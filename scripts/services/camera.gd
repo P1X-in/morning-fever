@@ -3,14 +3,15 @@ var bag
 
 var camera = preload("res://scenes/camera.tscn").instance()
 
-const CAMERA_FIXED_Y = 100
+const CAMERA_FIXED_Y = 140
 
 func _init_bag(bag):
     self.bag = bag
 
 func attach():
-    self.bag.board.attach(self.camera)
+    self.bag.board.attach_object(self.camera)
     self.bag.processing.register(self)
+    self.set_pos(self.bag.positions.CAMERA_POS)
 
 func detach():
     self.bag.board.detach(self.camera)
