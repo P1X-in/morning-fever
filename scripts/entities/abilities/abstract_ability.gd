@@ -7,4 +7,5 @@ func _init(bag, using_entity):
     self.using_entity = using_entity
 
 func use():
+    print('using')
     return

@@ -32,6 +32,8 @@ func _init(bag, player_id).(bag):
     self.input_handlers = [
         preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0),
         preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 1),
+        preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self, "kick", JOY_XBOX_1),
+        preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self, "punch", JOY_XBOX_0),
     ]
 
     self.key_handlers = [
@@ -111,12 +113,10 @@ func handle_collision(collider):
 func handle_animations():
     if not self.animations.is_playing() or self.animations.get_current_animation() == 'idle':
         if self.movement_vector[0] != 0 or self.movement_vector[1] != 0:
-            self.animations.play('walk')
-            print('walking')
+            self.animate('walk')
         else:
             if not self.animations.is_playing():
-                self.animations.play('idle')
-                print('idle')
+                self.animate('idle')
 
 
 func handle_items():
@@ -143,9 +143,11 @@ func attack(ability_name):
     if self.is_attack_on_cooldown:
         return
 
-    self.abilities[ability_name].use()
+    self.attacks[ability_name].use()
     self.is_attack_on_cooldown = true
+    self.can_move = false
     self.bag.timers.set_timeout(self.attack_cooldown, self, "attack_cooled_down")
 
 func attack_cooled_down():
     self.is_attack_on_cooldown = false
+    self.can_move = true

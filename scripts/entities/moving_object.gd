@@ -11,6 +11,8 @@ var AXIS_THRESHOLD = 0.15
 var FLOOR_FRICTION = 25
 var MOVEMENT_SPEED_CAP = 4
 
+var can_move = true
+
 func _init(bag).(bag):
     self.bag = bag
 
@@ -26,6 +28,9 @@ func process(delta):
     self.modify_position(delta)
 
 func modify_position(delta):
+    if not self.can_move:
+        return
+
     var x = self.apply_axis_threshold(self.controller_vector[0])
     var y = self.apply_axis_threshold(self.controller_vector[1])
 
@@ -100,6 +105,9 @@ func flip(direction):
 
 func reset_movement():
     self.movement_vector = [0, 0]
+
+func animate(name):
+    self.animations.play(name)
 
 func push_back(enemy):
     var enemy_position = enemy.get_pos()
