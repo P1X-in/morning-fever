@@ -4,6 +4,9 @@ var hp = 1
 var max_hp = 1
 var vulnerable = true
 
+func _init(bag).(bag):
+    self.bag = bag
+
 func die():
     self.play_sound('die')
     self.despawn()

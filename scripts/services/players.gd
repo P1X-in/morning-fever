@@ -1,19 +1,18 @@
 
 var bag
 
-var player_template #= preload("res://scripts/player.gd")
+var player_template = preload("res://scripts/entities/player.gd")
 var players = []
 
 func _init_bag(bag):
     self.bag = bag
-    #self.bind_players()
+    self.bind_players()
 
 func bind_players():
     self.players = [
         self.player_template.new(self.bag, 0),
+        self.player_template.new(self.bag, 1),
     ]
-    self.players[0].bind_keyboard_and_mouse()
-    self.players[0].bind_arcade()
 
 func spawn_players():
     for player in self.players:

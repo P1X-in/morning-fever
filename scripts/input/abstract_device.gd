@@ -2,7 +2,7 @@
 var handled_input_types = []
 var device_id = null
 
-var event_handlers = []
+var event_handlers = {}
 
 func can_handle(event):
     for type in self.handled_input_types:
@@ -15,8 +15,11 @@ func can_handle(event):
     return false
 
 func register_handler(handler):
-    self.event_handlers.append(handler)
+    self.event_handlers[handler.get_instance_ID()] = handler
+
+func remove_handler(handler):
+    self.event_handlers.erase(handler.get_instance_ID())
 
 func handle_event(event):
     for handler in self.event_handlers:
-        handler.handle(event)
+        self.event_handlers[handler].handle(event)

@@ -9,6 +9,9 @@ var AXIS_THRESHOLD = 0.15
 var FLOOR_FRICTION = 25
 var MOVEMENT_SPEED_CAP = 10
 
+func _init(bag).(bag):
+    self.bag = bag
+
 func spawn(position):
     .spawn(position)
     self.bag.processing.register(self)

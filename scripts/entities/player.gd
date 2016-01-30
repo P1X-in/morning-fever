@@ -1,6 +1,7 @@
 extends "res://scripts/entities/moving_object.gd"
 
 var player_id
+var gamepad_id = null
 var score = 0
 
 var is_playing = false
@@ -11,6 +12,15 @@ var attack_range = 100
 var attacks = {}
 var is_attack_on_cooldown = false
 
+var input_handlers = [
+    #preload("res://scripts/input/handlers/player_enter_game_gamepad.gd").new(self.bag, self),
+    #preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0),
+    #preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 1),
+    #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 0, Globals.get("platform_input/xbox_right_stick_x")),
+    #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 1, Globals.get("platform_input/xbox_right_stick_y")),
+    #preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self)
+]
+
 func _init(bag, player_id).(bag):
     self.bag = bag
     self.player_id = player_id
@@ -18,20 +28,28 @@ func _init(bag, player_id).(bag):
     self.hp = 10
     self.max_hp = 10
 
-    self.avatar = preload("res://scenes/player/player.xscn").instance()
+    self.avatar = preload("res://scenes/entities/bum.tscn").instance()
 
 func bind_gamepad(id):
+    self.unbind_gamepad()
+    self.gamepad_id = id
     var gamepad = self.bag.input.devices['pad' + str(id)]
-    #gamepad.register_handler(preload("res://scripts/input/handlers/player_enter_game_gamepad.gd").new(self.bag, self))
-    #gamepad.register_handler(preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0))
-    #gamepad.register_handler(preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 1))
-    #gamepad.register_handler(preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 0, Globals.get("platform_input/xbox_right_stick_x")))
-    #gamepad.register_handler(preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 1, Globals.get("platform_input/xbox_right_stick_y")))
-    #gamepad.register_handler(preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self))
+
+    for handler in self.input_handlers:
+        gamepad.register_handler(handler)
+
+func unbind_gamepad():
+    if self.gamepad_id == null:
+        return
+
+    var gamepad = self.bag.input.devices['pad' + str(self.gamepad_id)]
+
+    for handler in self.input_handlers:
+        gamepad.remove_handler(handler)
 
 func enter_game():
     self.is_playing = true
-    self.spawn(Vector2(0, 0))
+    self.spawn(self.bag.positions.players[self.player_id])
 
 func spawn(position):
     self.is_alive = true
