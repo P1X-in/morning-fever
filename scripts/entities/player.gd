@@ -26,6 +26,7 @@ func _init(bag, player_id).(bag):
 
     self.avatar = preload("res://scenes/entities/bum.tscn").instance()
     self.body = self.avatar.get_node('body')
+    self.animations = self.avatar.get_node('anim')
 
     self.input_handlers = [
         preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0),
@@ -81,6 +82,7 @@ func die():
 func process(delta):
     .process(delta)
     self.handle_items()
+    self.handle_animations()
 
 func modify_position(delta):
     .modify_position(delta)
@@ -103,7 +105,14 @@ func handle_collision(collider):
     return
 
 func handle_animations():
-    return
+    if not self.animations.is_playing() or self.animations.get_current_animation() == 'idle':
+        if self.movement_vector[0] != 0 or self.movement_vector[1] != 0:
+            self.animations.play('walk')
+            print('walking')
+        else:
+            if not self.animations.is_playing():
+                self.animations.play('idle')
+                print('idle')
 
 
 func handle_items():

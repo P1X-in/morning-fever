@@ -1,6 +1,7 @@
 extends "res://scripts/entities/destructable_object.gd"
 
 var body
+var animations
 var velocity
 var movement_vector = [0, 0]
 var controller_vector = [0, 0]
