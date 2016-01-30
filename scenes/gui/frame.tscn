@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://assets/gui/corner.png" type="Texture" id=1]
+[ext_resource path="res://scenes/gui/corner.png" type="Texture" id=1]
 
 [node name="frame" type="Control"]
 

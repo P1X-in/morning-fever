@@ -1,9 +1,9 @@
 extends "res://scripts/services/abstract_screen.gd"
 
-var board = preload("res://assets/map/board.tscn")
+var board = preload("res://scenes/map/board.tscn")
 
 func _init():
-    self.screen_scene = preload("res://assets/map/board.tscn").instance()
+    self.screen_scene = preload("res://scenes/map/board.tscn").instance()
 
 func attach_object(object):
     return
