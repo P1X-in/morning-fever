@@ -11,3 +11,5 @@ func start_game():
     self.bag.board.load_map('map1')
     self.bag.camera.attach()
     self.is_game_in_progress = true
+
+    self.bag.enemies.spawn('bum', self.bag.positions.CAMERA_POS)

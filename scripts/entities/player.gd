@@ -9,7 +9,7 @@ var is_playing = false
 var is_alive = true
 
 var attack_range = 100
-var camera_leash = 110
+var camera_leash = 150
 
 var attacks = {}
 var attack_cooldown = 0.2

@@ -13,6 +13,7 @@ var maps = preload("res://scripts/services/maps.gd").new()
 var camera = preload("res://scripts/services/camera.gd").new()
 var positions = preload("res://scripts/entities/positions.gd").new()
 var players = preload("res://scripts/services/players.gd").new()
+var enemies = preload("res://scripts/services/enemies.gd").new()
 
 func _init(root_node):
     self.root = root_node
@@ -26,3 +27,4 @@ func _init(root_node):
     self.maps._init_bag(self)
     self.camera._init_bag(self)
     self.players._init_bag(self)
+    self.enemies._init_bag(self)

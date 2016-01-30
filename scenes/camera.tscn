@@ -2,11 +2,10 @@
 
 [node name="camera_target" type="Node2D"]
 
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 
 [node name="camera" type="Camera2D" parent="."]
 
-offset = Vector2( 33, 0 )
 anchor_mode = 1
 rotating = false
 current = true
