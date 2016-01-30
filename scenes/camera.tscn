@@ -4,6 +4,7 @@
 
 margin/right = 32.0
 margin/bottom = 32.0
+rect/scale = Vector2( 0, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -14,8 +15,8 @@ __meta__ = { "__editor_plugin_screen__":"2D" }
 
 anchor_mode = 1
 rotating = false
-current = false
-zoom = Vector2( 1, 1 )
+current = true
+zoom = Vector2( 0.25, 0.25 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
