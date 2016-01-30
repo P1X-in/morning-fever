@@ -42,4 +42,4 @@ func calculate_distance(their_position):
 
 func play_sound(name):
     if self.sounds.has(name):
-        self.bag.sample_player.play(self.sounds[name])
+        self.bag.sound.play(self.sounds[name])
