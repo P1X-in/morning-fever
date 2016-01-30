@@ -32,8 +32,8 @@ func _init(bag, player_id).(bag):
     self.input_handlers = [
         preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0),
         preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 1),
-        preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self, "kick", JOY_XBOX_1),
-        preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self, "punch", JOY_XBOX_0),
+        preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self, "kick", JOY_BUTTON_0),
+        preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self, "punch", JOY_BUTTON_1),
     ]
 
     self.key_handlers = [
