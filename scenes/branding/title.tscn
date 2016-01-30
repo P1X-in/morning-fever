@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://scenes/branding/mf_logo.png" type="Texture" id=1]
-[ext_resource path="res://scenes/branding/p1x_logo.png" type="Texture" id=2]
-[ext_resource path="res://units/bum_smoke.xscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/fonts/courier_prime_24.fnt" type="Font" id=4]
-[ext_resource path="res://scenes/fonts/courier_prime_32.fnt" type="Font" id=5]
+[ext_resource path="res://scenes/map/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/branding/mf_logo.png" type="Texture" id=2]
+[ext_resource path="res://scenes/branding/p1x_logo.png" type="Texture" id=3]
+[ext_resource path="res://units/bum_smoke.xscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/fonts/courier_prime_24.fnt" type="Font" id=5]
+[ext_resource path="res://scenes/fonts/courier_prime_32.fnt" type="Font" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -26,35 +27,54 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 use_top_left = false
-__meta__ = { "__editor_plugin_screen__":"Script", "_edit_lock_":true }
+__meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
 
 [node name="center" type="Control" parent="."]
 
-margin/left = 512.0
-margin/top = 300.0
-margin/right = 512.0
-margin/bottom = 300.0
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
+[node name="TileMap" type="TileMap" parent="center"]
+
+transform/pos = Vector2( 30, 160 )
+transform/scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 32, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -4, 11, -3, 12, -2, 12, -1, 12, -65536, 12, -65535, 12, -65534, 12, -65533, 13 )
+
 [node name="mornin_fever" type="Sprite" parent="center"]
 
 transform/scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="p1x" type="Sprite" parent="center"]
 
 transform/pos = Vector2( 0, -200 )
 transform/scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
-[node name="bum" parent="center" instance=ExtResource( 3 )]
+[node name="bum" parent="center" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 330.052, 14.6353 )
+transform/pos = Vector2( 363.052, 86.6353 )
 transform/scale = Vector2( 4, 4 )
-flip_h = true
 
 [node name="press_start" type="Label" parent="center"]
 
@@ -68,7 +88,7 @@ margin/bottom = -193.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "PRESS ANY BUTTON TO START"
 align = 1
 uppercase = true
@@ -100,7 +120,7 @@ margin/bottom = -128.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
