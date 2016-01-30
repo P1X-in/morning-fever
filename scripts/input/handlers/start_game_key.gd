@@ -7,5 +7,5 @@ func _init(bag):
     self.scancode = KEY_RETURN
 
 func handle(event):
-    if event.is_pressed():
+    if event.is_pressed() and not self.bag.action.is_game_in_progress:
         self.bag.action.start_game()

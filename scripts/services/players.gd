@@ -16,7 +16,7 @@ func bind_players():
 
 func get_next_free_player():
     for player in self.players:
-        if not player.is_playing and players.is_alive:
+        if not player.is_playing and player.is_alive:
             return player
     return null
 

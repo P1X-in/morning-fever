@@ -5,8 +5,8 @@ var bag
 func _init(bag):
     self.bag = bag
     self.type = InputEvent.JOYSTICK_BUTTON
-    self.button_index = JOY_BUTTON_9
+    self.button_index = JOY_BUTTON_7
 
 func handle(event):
-    if event.is_pressed() && not self.bag.game_state.game_in_progress:
-        self.bag.controller.start_game()
+    if event.is_pressed() and not self.bag.action.is_game_in_progress:
+        self.bag.action.start_game()

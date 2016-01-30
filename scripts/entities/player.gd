@@ -12,14 +12,7 @@ var attack_range = 100
 var attacks = {}
 var is_attack_on_cooldown = false
 
-var input_handlers = [
-    #preload("res://scripts/input/handlers/player_enter_game_gamepad.gd").new(self.bag, self),
-    #preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0),
-    #preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 1),
-    #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 0, Globals.get("platform_input/xbox_right_stick_x")),
-    #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 1, Globals.get("platform_input/xbox_right_stick_y")),
-    #preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self)
-]
+var input_handlers = []
 
 func _init(bag, player_id).(bag):
     self.bag = bag
@@ -29,6 +22,15 @@ func _init(bag, player_id).(bag):
     self.max_hp = 10
 
     self.avatar = preload("res://scenes/entities/bum.tscn").instance()
+    self.body = self.avatar.get_node('body')
+
+    self.input_handlers = [
+        preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 0),
+        preload("res://scripts/input/handlers/player_move_axis.gd").new(self.bag, self, 1),
+        #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 0, Globals.get("platform_input/xbox_right_stick_x")),
+        #preload("res://scripts/input/handlers/player_cone_gamepad.gd").new(self.bag, self, 1, Globals.get("platform_input/xbox_right_stick_y")),
+        #preload("res://scripts/input/handlers/player_attack_gamepad.gd").new(self.bag, self)
+    ]
 
 func bind_gamepad(id):
     self.unbind_gamepad()

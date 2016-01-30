@@ -10,5 +10,5 @@ func _init(bag, player, axis):
     self.axis = axis
 
 func handle(event):
-    if self.bag.game_state.game_in_progress && self.player.is_playing && self.player.is_alive:
-        self.player.movement_vector[self.axis] = event.value
+    if self.bag.action.is_game_in_progress && self.player.is_playing && self.player.is_alive:
+        self.player.controller_vector[self.axis] = event.value

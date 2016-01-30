@@ -1,5 +1,6 @@
 extends "res://scripts/entities/destructable_object.gd"
 
+var body
 var velocity
 var movement_vector = [0, 0]
 var controller_vector = [0, 0]
@@ -7,7 +8,7 @@ var controller_vector = [0, 0]
 var AXIS_THRESHOLD = 0.15
 
 var FLOOR_FRICTION = 25
-var MOVEMENT_SPEED_CAP = 10
+var MOVEMENT_SPEED_CAP = 4
 
 func _init(bag).(bag):
     self.bag = bag
@@ -91,10 +92,10 @@ func flip(direction):
         return
 
     var flip_sprite = false
-    if direction > 0:
+    if direction < 0:
         flip_sprite = true
 
-    self.avatar.set_flip_h(flip_sprite)
+    self.body.set_flip_h(flip_sprite)
 
 func reset_movement():
     self.movement_vector = [0, 0]
