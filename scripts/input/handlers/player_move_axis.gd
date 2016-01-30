@@ -11,4 +11,4 @@ func _init(bag, player, axis):
 
 func handle(event):
     if self.bag.action.is_game_in_progress && self.player.is_playing && self.player.is_alive:
-        self.player.controller_vector[self.axis] = event.value
+        self.player.controller_vector[self.axis] = min(event.value * 2, 1)
