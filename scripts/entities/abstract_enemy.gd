@@ -69,6 +69,15 @@ func process(delta):
     self.reset_movement()
     self.process_ai()
     .process(delta)
+    self.handle_animations()
+
+func handle_animations():
+    if not self.animations.is_playing() or self.animations.get_current_animation() == 'idle':
+        if self.movement_vector[0] != 0 or self.movement_vector[1] != 0:
+            self.animate('walk')
+        else:
+            if not self.animations.is_playing():
+                self.animate('idle')
 
 func apply_axis_threshold(axis_value):
     return axis_value
