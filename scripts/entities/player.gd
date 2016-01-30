@@ -12,6 +12,7 @@ var attack_range = 100
 var camera_leash = 110
 
 var attacks = {}
+var attack_cooldown = 0.2
 var is_attack_on_cooldown = false
 
 var input_handlers = []
@@ -39,6 +40,9 @@ func _init(bag, player_id).(bag):
         preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 0, KEY_A, -1),
         preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 0, KEY_D, 1)
     ]
+
+    self.attacks['punch'] = preload("res://scripts/entities/abilities/punch.gd").new(self.bag, self)
+    self.attacks['kick'] = preload("res://scripts/entities/abilities/kick.gd").new(self.bag, self)
 
 func bind_keyboard():
     var keyboard = self.bag.input.devices['keyboard']
@@ -118,12 +122,6 @@ func handle_animations():
 func handle_items():
     return
 
-func attack():
-    if self.is_attack_on_cooldown:
-        return
-
-    return
-
 func check_colisions():
     return
 
@@ -140,6 +138,14 @@ func reset():
     self.score = 0
     self.is_attack_on_cooldown = false
     self.despawn()
+
+func attack(ability_name):
+    if self.is_attack_on_cooldown:
+        return
+
+    self.abilities[ability_name].use()
+    self.is_attack_on_cooldown = true
+    self.bag.timers.set_timeout(self.attack_cooldown, self, "attack_cooled_down")
 
 func attack_cooled_down():
     self.is_attack_on_cooldown = false
