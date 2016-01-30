@@ -116,4 +116,12 @@
 13/navigation_offset = Vector2( 16, 32 )
 13/shape_offset = Vector2( 0, 0 )
 13/shapes = [  ]
+14/name = "Sprite15"
+14/texture = ExtResource( 1 )
+14/tex_offset = Vector2( 0, 0 )
+14/region = Rect2( 448, 0, 32, 64 )
+14/occluder_offset = Vector2( 16, 32 )
+14/navigation_offset = Vector2( 16, 32 )
+14/shape_offset = Vector2( 0, 0 )
+14/shapes = [  ]
 
