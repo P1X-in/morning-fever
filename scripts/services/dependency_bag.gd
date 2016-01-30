@@ -8,6 +8,8 @@ var input = preload("res://scripts/input/input.gd").new()
 var intro = preload("res://scripts/services/intro.gd").new()
 var board = preload("res://scripts/services/board.gd").new()
 var sound = preload("res://scripts/controllers/sound_controller.gd").new()
+var action = preload("res://scripts/controllers/action_controller.gd").new()
+var maps = preload("res://scripts/services/maps.gd").new()
 
 func _init(root_node):
     self.root = root_node
@@ -17,3 +19,5 @@ func _init(root_node):
     self.intro._init_bag(self, root_node.mount)
     self.board._init_bag(self, root_node.mount)
     self.sound._init_bag(self, root_node)
+    self.action._init_bag(self)
+    self.maps._init_bag(self)
