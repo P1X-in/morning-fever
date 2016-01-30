@@ -5,7 +5,7 @@ var camera = preload("res://scenes/camera.tscn").instance()
 var true_camera_node
 var zoom
 
-const CAMERA_FIXED_Y = 165
+const CAMERA_FIXED_Y = 132
 
 func _init_bag(bag):
     self.bag = bag
