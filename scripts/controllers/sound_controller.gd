@@ -8,6 +8,8 @@ var music_volume = 1.0
 
 var samples = []
 
+var soundtracks = {}
+
 func _init_bag(bag, mount):
     self.bag = bag
     mount.add_child(self.sample_player)
@@ -18,6 +20,16 @@ func _init_bag(bag, mount):
 
 func play(sound):
     sample_player.play(sound)
+
+func play_soundtrack(name):
+    self.stop_soundtrack()
+
+    self.stream_player.set_stream(self.soundtracks[name])
+    self.stream_player.set_loop(true)
+    self.stream_player.play()
+
+func stop_soundtrack():
+    self.stream_player.stop()
 
 func load_samples():
     for sample in self.samples:
