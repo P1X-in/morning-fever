@@ -3,7 +3,7 @@
 	<ext_resource path="res://assets/entities/bum_smoke.png" type="Texture" index="0"></ext_resource>
 	<resource type="Animation" path="local://1">
 		<string name="resource/name"> "run" </string>
-		<real name="length"> 3 </real>
+		<real name="length"> 15 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
 		<string name="tracks/0/type"> "value" </string>
@@ -13,16 +13,24 @@
 			<string> "cont" </string>
 			<bool> False </bool>
 			<string> "times" </string>
-			<real_array  len="9"> 				0, 0.3, 0.6, 0.9, 1.3, 1.7, 2.1, 2.6, 2.9 </real_array>
+			<real_array  len="17"> 				0, 0.3, 0.6, 0.9, 1.3, 1.7, 2.1, 2.6, 3, 3.5, 3.9, 4.4, 4.8, 5.5, 5.9, 6.4, 6.8 </real_array>
 			<string> "transitions" </string>
-			<real_array  len="9"> 				1, 1, 1, 1, 1, 1, 1, 1, 1 </real_array>
+			<real_array  len="17"> 				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 </real_array>
 			<string> "values" </string>
-			<array  len="9" shared="false">
+			<array  len="17" shared="false">
 				<int> 0 </int>
 				<int> 0 </int>
 				<int> 1 </int>
 				<int> 2 </int>
 				<int> 3 </int>
+				<int> 1 </int>
+				<int> 2 </int>
+				<int> 3 </int>
+				<int> 2 </int>
+				<int> 1 </int>
+				<int> 2 </int>
+				<int> 3 </int>
+				<int> 2 </int>
 				<int> 1 </int>
 				<int> 2 </int>
 				<int> 3 </int>
@@ -41,10 +49,11 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="13">
+			<string_array  len="14">
 				<string> "Sprite" </string>
 				<string> "texture" </string>
 				<string> "hframes" </string>
+				<string> "frame" </string>
 				<string> "__meta__" </string>
 				<string> "AnimationPlayer" </string>
 				<string> "playback/process_mode" </string>
@@ -62,11 +71,12 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="36"> 				-1, -1, 0, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 4, 4, -1, 8, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 0 </int_array>
+			<int_array  len="38"> 				-1, -1, 0, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 0, 0, 0, 5, 5, -1, 8, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 13, 11, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="11" shared="false">
+			<array  len="12" shared="false">
 				<resource  external="0">  </resource>
 				<int> 4 </int>
+				<int> 2 </int>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
