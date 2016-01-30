@@ -11,14 +11,14 @@ __meta__ = { "__editor_plugin_screen__":"2D" }
 transform/pos = Vector2( 33, 23 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 0, 0, 32, 32 )
+region_rect = Rect2( 0, 0, 32, 64 )
 
 [node name="Sprite1" type="Sprite" parent="."]
 
 transform/pos = Vector2( 77, 24 )
 texture = ExtResource( 1 )
 region = true
-region_rect = Rect2( 32, 0, 32, 32 )
+region_rect = Rect2( 32, 0, 32, 64 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 
