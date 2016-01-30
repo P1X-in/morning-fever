@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/gui/corner.png" type="Texture" id=1]
+
+[node name="frame" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="up-left" type="Control" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="up-left"]
+
+texture = ExtResource( 1 )
+centered = false
+vframes = 2
+hframes = 2
+
+[node name="up-right" type="Control" parent="."]
+
+anchor/left = 1
+anchor/right = 1
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="up-right"]
+
+transform/pos = Vector2( -64, 0 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="down-right" type="Control" parent="."]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="down-right"]
+
+transform/pos = Vector2( -64, -48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 2
+hframes = 2
+frame = 3
+
+[node name="down-left" type="Control" parent="."]
+
+anchor/top = 1
+anchor/bottom = 1
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="down-left"]
+
+transform/pos = Vector2( 0, -48 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 2
+hframes = 2
+frame = 2
+
+
