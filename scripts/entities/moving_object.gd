@@ -12,6 +12,8 @@ var FLOOR_FRICTION = 25
 var MOVEMENT_SPEED_CAP = 4
 
 var can_move = true
+var stun_duration = 0.25
+var is_stunned = false
 
 func _init(bag).(bag):
     self.bag = bag
@@ -63,7 +65,7 @@ func modify_position(delta):
         current_motion = normal.slide(current_motion)
         self.avatar.move(current_motion)
         self.handle_collision(self.avatar.get_collider())
-    self.flip(self.controller_vector[0])
+    self.flip(self.movement_vector[0])
     self.movement_vector[0] = current_motion.x
     self.movement_vector[1] = current_motion.y
 
@@ -120,3 +122,14 @@ func push_back(enemy):
     var scale = force / self.calculate_distance(enemy_position) * 10
 
     self.avatar.move(Vector2(position_delta_x * scale, position_delta_y * scale))
+
+func stun(duration=null):
+    if duration == null:
+        duration = self.stun_duration
+    self.is_processing = false
+    self.is_stunned = true
+    self.bag.timers.set_timeout(duration, self, "remove_stun")
+
+func remove_stun():
+    self.is_stunned = false
+    self.is_processing = true

@@ -7,6 +7,8 @@ var score = 0
 
 var is_playing = false
 var is_alive = true
+var is_invulnerable = false
+var invulnerability_period = 0.5
 
 var attack_range = 100
 var camera_leash = 150
@@ -127,10 +129,6 @@ func handle_items():
 func check_colisions():
     return
 
-func recieve_damage(damage):
-    #self.bag.camera.shake()
-    .recieve_damage(damage)
-
 func reset():
     self.hp = self.max_hp
     self.is_playing = false
@@ -153,3 +151,14 @@ func attack(ability_name):
 func attack_cooled_down():
     self.is_attack_on_cooldown = false
     self.can_move = true
+
+func recieve_damage(damage):
+    if self.is_invulnerable:
+        return
+
+    self.is_invulnerable = true
+    .recieve_damage(damage)
+    self.bag.timers.set_timeout(self.invulnerability_period, self, "loose_invulnerability")
+
+func loose_invulnerability():
+    self.is_invulnerable = false

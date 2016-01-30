@@ -78,6 +78,7 @@ func attack():
     self.is_attack_on_cooldown = true
     self.target.push_back(self)
     self.target.recieve_damage(self.attack_strength)
+    self.target.stun()
     self.bag.timers.set_timeout(self.attack_cooldown, self, "attack_cooled_down")
 
 func attack_cooled_down():

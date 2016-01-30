@@ -5,3 +5,7 @@ func _init(bag).(bag):
     self.body = self.avatar.get_node('body')
     self.animations = self.avatar.get_node('anim')
     self.score = 120
+
+func attack():
+    .attack()
+    self.animate('punch')
