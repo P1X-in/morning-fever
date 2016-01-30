@@ -53,8 +53,10 @@ func unbind_gamepad():
     self.gamepad_id = null
 
 func enter_game():
+    var entry_position
     self.is_playing = true
-    self.spawn(self.bag.positions.players[self.player_id])
+    entry_position = self.bag.camera.get_pos() + self.bag.positions.players[self.player_id]
+    self.spawn(entry_position)
 
 func spawn(position):
     self.is_alive = true
