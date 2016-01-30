@@ -10,6 +10,7 @@ var board = preload("res://scripts/services/board.gd").new()
 var sound = preload("res://scripts/controllers/sound_controller.gd").new()
 var action = preload("res://scripts/controllers/action_controller.gd").new()
 var maps = preload("res://scripts/services/maps.gd").new()
+var camera = preload("res://scripts/services/camera.gd").new()
 
 func _init(root_node):
     self.root = root_node
@@ -21,3 +22,4 @@ func _init(root_node):
     self.sound._init_bag(self, root_node)
     self.action._init_bag(self)
     self.maps._init_bag(self)
+    self.camera._init_bag(self)
