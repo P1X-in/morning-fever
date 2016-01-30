@@ -2,6 +2,7 @@ extends "res://scripts/entities/moving_object.gd"
 
 var player_id
 var gamepad_id = null
+var keyboard_use = null
 var score = 0
 
 var is_playing = false
@@ -40,7 +41,7 @@ func _init(bag, player_id).(bag):
 
 func bind_keyboard():
     var keyboard = self.bag.input.devices['keyboard']
-
+    self.keyboard_use = true
     for handler in self.key_handlers:
         keyboard.register_handler(handler)
 

@@ -1,7 +1,6 @@
 extends "res://scripts/input/handlers/keyboard_handler.gd"
 
 var bag
-var is_used = false
 
 func _init(bag):
     self.bag = bag
@@ -9,10 +8,9 @@ func _init(bag):
 
 func handle(event):
     if event.is_pressed() and self.bag.action.is_game_in_progress:
-        if self.is_used:
+        if self.bag.players.is_keyboard_in_use():
             return
 
-        self.is_used = true
         var player = self.bag.players.get_next_free_player()
         if player == null:
             return

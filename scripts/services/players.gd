@@ -26,6 +26,12 @@ func is_gamepad_in_use(id):
             return true
     return false
 
+func is_keyboard_in_use():
+    for player in self.players:
+        if player.keyboard_use:
+            return true
+    return false
+
 func spawn_players():
     for player in self.players:
         player.enter_game()
