@@ -23,9 +23,10 @@ var key_handlers = []
 func _init(bag, player_id).(bag):
     self.bag = bag
     self.player_id = player_id
-    self.velocity = 50
+    self.velocity = 32
     self.hp = 10
     self.max_hp = 10
+    self.MOVEMENT_SPEED_CAP = 2.5
 
     self.avatar = preload("res://scenes/entities/bum.tscn").instance()
     self.body = self.avatar.get_node('body')
