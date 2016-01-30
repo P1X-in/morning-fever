@@ -5,6 +5,7 @@ var animations
 var velocity
 var movement_vector = [0, 0]
 var controller_vector = [0, 0]
+var facing = 1
 
 var AXIS_THRESHOLD = 0.15
 
@@ -102,6 +103,7 @@ func flip(direction):
         return
 
     var flip_sprite = false
+    self.facing = direction
     if direction < 0:
         flip_sprite = true
 
@@ -113,13 +115,12 @@ func reset_movement():
 func animate(name):
     self.animations.play(name)
 
-func push_back(enemy):
+func push_back(enemy, force=2):
     var enemy_position = enemy.get_pos()
     var object_position = self.get_pos()
 
     var position_delta_x =  object_position.x - enemy_position.x
     var position_delta_y = object_position.y - enemy_position.y
-    var force = pow(enemy.attack_strength, -1)
 
     var scale = force / self.calculate_distance(enemy_position) * 10
 
