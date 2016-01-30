@@ -26,7 +26,6 @@ func unload_map():
     self.current_map = null
 
 func attach_object(object):
-    print(object)
     if self.current_map == null or not self.mount.is_a_parent_of(self.current_map) or self.current_map.is_a_parent_of(object):
         return
 

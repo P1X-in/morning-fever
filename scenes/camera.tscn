@@ -1,18 +1,12 @@
 [gd_scene format=1]
 
-[node name="camera_target" type="Control"]
+[node name="camera_target" type="Node2D"]
 
-margin/right = 32.0
-margin/bottom = 32.0
-rect/scale = Vector2( 0, 0 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 __meta__ = { "__editor_plugin_screen__":"2D" }
 
 [node name="camera" type="Camera2D" parent="."]
 
+offset = Vector2( 33, 0 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -21,8 +15,8 @@ limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
 limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
+drag_margin/h_enabled = false
+drag_margin/v_enabled = false
 smoothing/enable = false
 smoothing/speed = 5.0
 drag_margin/left = 0.2

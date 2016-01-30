@@ -8,6 +8,7 @@ var is_playing = false
 var is_alive = true
 
 var attack_range = 100
+var camera_leash = 110
 
 var attacks = {}
 var is_attack_on_cooldown = false
@@ -70,6 +71,19 @@ func process(delta):
 func modify_position(delta):
     .modify_position(delta)
     self.handle_animations()
+
+func apply_friction(current_motion, delta):
+    var new_motion = .apply_friction(current_motion, delta)
+    var camera_distance = self.calculate_distance_to_object(self.bag.camera)
+    var direction = self.get_pos().x - self.bag.camera.get_pos().x
+
+    if camera_distance > self.camera_leash:
+        if direction < 0 and new_motion.x < 0:
+            new_motion.x = 0
+        elif direction > 0 and new_motion.x > 0:
+            new_motion.x = 0
+
+    return new_motion
 
 func handle_collision(collider):
     return
