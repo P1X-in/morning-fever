@@ -40,7 +40,9 @@ func _init(bag, player_id).(bag):
         preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 1, KEY_W, -1),
         preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 1, KEY_S, 1),
         preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 0, KEY_A, -1),
-        preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 0, KEY_D, 1)
+        preload("res://scripts/input/handlers/player_move_key.gd").new(self.bag, self, 0, KEY_D, 1),
+        preload("res://scripts/input/handlers/player_attack_keyboard.gd").new(self.bag, self, "kick", KEY_O),
+        preload("res://scripts/input/handlers/player_attack_keyboard.gd").new(self.bag, self, "punch", KEY_P),
     ]
 
     self.attacks['punch'] = preload("res://scripts/entities/abilities/punch.gd").new(self.bag, self)
