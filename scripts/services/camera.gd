@@ -4,8 +4,10 @@ var bag
 var camera = preload("res://scenes/camera.tscn").instance()
 var true_camera_node
 var zoom
+var locked = false
 
 const CAMERA_FIXED_Y = 132
+const SNAP_THRESHOLD = 1
 
 func _init_bag(bag):
     self.bag = bag
@@ -29,7 +31,15 @@ func get_pos():
 func set_pos(position):
     self.camera.set_pos(position)
 
+func lock():
+    self.locked = true
+func unlock():
+    self.locked = false
+
 func process(delta):
+    if self.locked:
+        return
+
     var average_position = Vector2(0, 0)
     var count = 0
 
@@ -43,9 +53,10 @@ func process(delta):
         average_position = average_position + player_position
         count = count + 1
 
-
     if count > 0:
         average_position = average_position / count
-        average_position.y = self.CAMERA_FIXED_Y
         if average_position.x > camera_position.x:
+            if average_position.x - camera_position.x > self.SNAP_THRESHOLD:
+                average_position.x = camera_position.x + (average_position.x - camera_position.x) * delta * 2
+            average_position.y = self.CAMERA_FIXED_Y
             self.camera.set_pos(average_position)

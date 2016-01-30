@@ -2,7 +2,7 @@
 var bag
 
 var maps = {
-    'map1' : preload("res://scenes/map/city1.tscn").instance()
+    'map1' : preload("res://scripts/entities/maps/map1.gd").new()
 }
 
 func _init_bag(bag):

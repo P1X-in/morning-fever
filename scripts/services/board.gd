@@ -3,9 +3,12 @@ extends "res://scripts/services/abstract_screen.gd"
 var board = preload("res://scenes/map/board.tscn")
 var mount
 
+var current_map_data
 var current_map = null
 
 var attached_objects = {}
+
+var battles = []
 
 func _init():
     self.screen_scene = preload("res://scenes/map/board.tscn").instance()
@@ -13,9 +16,11 @@ func _init():
 
 func load_map(name):
     self.unload_map()
-    self.current_map = self.bag.maps.maps[name]
+    self.current_map_data = self.bag.maps.maps[name]
+    self.current_map = self.current_map_data.scene
     if not self.mount.is_a_parent_of(self.current_map):
         self.mount.add_child(self.current_map)
+    self.queue_battles()
 
 func unload_map():
     if current_map == null:
@@ -24,6 +29,15 @@ func unload_map():
     if self.mount.is_a_parent_of(self.current_map):
         self.mount.remove_child(self.current_map)
     self.current_map = null
+    self.battles = []
+
+func queue_battles():
+    for battle in self.current_map_data.battles:
+        self.battles.append({
+            'distance' : battle['distance'],
+            'waves' : battle['waves'],
+            'done' : false
+        })
 
 func attach_object(object):
     if self.current_map == null or not self.mount.is_a_parent_of(self.current_map) or self.current_map.is_a_parent_of(object):

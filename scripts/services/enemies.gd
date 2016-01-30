@@ -20,17 +20,27 @@ func add_enemy(enemy):
 func del_enemy(enemy):
     self.enemies_list.erase(enemy.get_instance_ID())
 
+func no_enemies():
+    if self.enemies_list.size() == 0:
+        return true
+    return false
+
 func spawn(name, position):
     var new_enemy = self.templates[name].new(self.bag)
     self.add_enemy(new_enemy)
     new_enemy.spawn(position)
 
-func find_closest_enemy(object, reach=null, direction=null):
+func spawn_wave(size):
+    var position
+    for i in range(size):
+        position = self.bag.positions.get_random_initial_enemy_position(self.bag.camera.get_pos())
+        self.spawn('bum', position)
+
+func find_enemies_in_range(object, reach, direction=null):
     var enemy
-    var closest_enemy = null
-    var closest_distance = 9999999
     var enemy_direction
     var calculated_distance
+    var found = []
 
     for enemy_id in self.enemies_list:
         enemy = self.enemies_list[enemy_id]
@@ -40,13 +50,10 @@ func find_closest_enemy(object, reach=null, direction=null):
                 continue
 
         calculated_distance = enemy.calculate_distance_to_object(object)
-        print(calculated_distance)
 
-        if reach != null and calculated_distance > reach:
+        if calculated_distance > reach:
             continue
 
-        if calculated_distance < closest_distance:
-            closest_distance = calculated_distance
-            closest_enemy = enemy
+        found.append(enemy)
 
-    return closest_enemy
+    return found

@@ -3,15 +3,15 @@ extends "res://scripts/entities/moving_object.gd"
 var destination = [0, 0]
 var target = null
 var aggro_range = 500
-var attack_range = 15
+var attack_range = 10
 var attack_strength = 1
-var attack_cooldown = 1
+var attack_cooldown = 2
 var is_attack_on_cooldown = false
-var moving_speed = 1
 var score = 0
 
 func _init(bag).(bag):
-    self.velocity = 50
+    self.velocity = 30
+    self.MOVEMENT_SPEED_CAP = 3
 
 func go_to(x, y):
     self.destination[0] = x
