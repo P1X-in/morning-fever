@@ -107,6 +107,6 @@ transform/pos = Vector2( 899, 154 )
 
 [node name="dumbster2" parent="ysort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 170, 188 )
+transform/pos = Vector2( 170, 187 )
 
 
