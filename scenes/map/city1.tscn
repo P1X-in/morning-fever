@@ -25,67 +25,67 @@ scroll/ignore_camera_zoom = false
 
 [node name="buildings" type="Node2D" parent="."]
 
+transform/pos = Vector2( 0, 64 )
 __meta__ = { "_edit_lock_":true }
 
 [node name="Sprite" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 0, 198 )
 texture = ExtResource( 1 )
 centered = false
 vframes = 4
 
 [node name="Sprite1" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 128, 198 )
+transform/pos = Vector2( 128, 0 )
 texture = ExtResource( 2 )
 centered = false
 vframes = 4
 
 [node name="Sprite2" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 256, 198 )
+transform/pos = Vector2( 256, 0 )
 texture = ExtResource( 3 )
 centered = false
 vframes = 4
 
 [node name="Sprite3" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 386, 198 )
+transform/pos = Vector2( 386, 0 )
 texture = ExtResource( 4 )
 centered = false
 vframes = 4
 
 [node name="Sprite4" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 644, 198 )
+transform/pos = Vector2( 644, 0 )
 texture = ExtResource( 1 )
 centered = false
 vframes = 4
 
 [node name="Sprite4 2" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 772, 198 )
+transform/pos = Vector2( 772, 0 )
 texture = ExtResource( 3 )
 centered = false
 vframes = 4
 
 [node name="Sprite4 3" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 902, 198 )
+transform/pos = Vector2( 902, 0 )
 texture = ExtResource( 4 )
 centered = false
 vframes = 4
 
 [node name="Sprite4 4" type="Sprite" parent="buildings"]
 
-transform/pos = Vector2( 516, 198 )
+transform/pos = Vector2( 516, 0 )
 texture = ExtResource( 1 )
 centered = false
 vframes = 4
 
 [node name="sidewalk" type="TileMap" parent="."]
 
-transform/pos = Vector2( 0, 256 )
+transform/pos = Vector2( 0, 128 )
 mode = 0
 tile_set = ExtResource( 5 )
 cell/size = Vector2( 32, 32 )
