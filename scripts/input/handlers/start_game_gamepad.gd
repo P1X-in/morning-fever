@@ -9,4 +9,4 @@ func _init(bag):
 
 func handle(event):
     if event.is_pressed() && not self.bag.game_state.game_in_progress:
-        self.bag.action_controller.start_game()
+        self.bag.controller.start_game()

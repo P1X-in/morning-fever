@@ -14,6 +14,18 @@ func bind_players():
         self.player_template.new(self.bag, 1),
     ]
 
+func get_next_free_player():
+    for player in self.players:
+        if not player.is_playing and players.is_alive:
+            return player
+    return null
+
+func is_gamepad_in_use(id):
+    for player in self.players:
+        if player.gamepad_id == id:
+            return true
+    return false
+
 func spawn_players():
     for player in self.players:
         player.enter_game()

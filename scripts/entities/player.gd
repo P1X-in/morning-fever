@@ -47,6 +47,8 @@ func unbind_gamepad():
     for handler in self.input_handlers:
         gamepad.remove_handler(handler)
 
+    self.gamepad_id = null
+
 func enter_game():
     self.is_playing = true
     self.spawn(self.bag.positions.players[self.player_id])

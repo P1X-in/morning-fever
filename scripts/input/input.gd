@@ -1,16 +1,19 @@
 
 var bag
 
+var keyboard_template = preload("res://scripts/input/keyboard.gd")
+var gamepad_template = preload("res://scripts/input/gamepad.gd")
+var mouse_template = preload("res://scripts/input/mouse.gd")
+var arcade_template = preload("res://scripts/input/arcade.gd")
+
 var devices = {
-    "keyboard" : preload("res://scripts/input/keyboard.gd").new(),
-    "mouse" : preload("res://scripts/input/mouse.gd").new(),
-    #"arcade" : preload("res://scripts/input/arcade.gd").new(),
-    "pad0" : preload("res://scripts/input/gamepad.gd").new(0),
-    "pad1" : preload("res://scripts/input/gamepad.gd").new(1),
-    "pad2" : preload("res://scripts/input/gamepad.gd").new(2),
-    "pad3" : preload("res://scripts/input/gamepad.gd").new(3),
-    "pad4" : preload("res://scripts/input/gamepad.gd").new(4),
-    "pad5" : preload("res://scripts/input/gamepad.gd").new(5),
+    "keyboard" : self.keyboard_template.new(),
+    "pad0" : self.gamepad_template.new(0),
+    "pad1" : self.gamepad_template.new(1),
+    "pad2" : self.gamepad_template.new(2),
+    "pad3" : self.gamepad_template.new(3),
+    "pad4" : self.gamepad_template.new(4),
+    "pad5" : self.gamepad_template.new(5),
 }
 
 func _init_bag(bag):
@@ -26,5 +29,11 @@ func load_basic_input():
     self.devices['keyboard'].register_handler(preload("res://scripts/input/handlers/quit_game.gd").new())
     self.devices['keyboard'].register_handler(preload("res://scripts/input/handlers/start_game_key.gd").new(self.bag))
 
-    #self.devices['arcade'].register_handler(preload("res://scripts/input/handlers/end_game_arcade.gd").new(self.bag))
-    #self.devices['arcade'].register_handler(preload("res://scripts/input/handlers/start_game_arcade.gd").new(self.bag))
+    var device
+    var start_game_handler = preload("res://scripts/input/handlers/start_game_gamepad.gd").new(self.bag)
+    var enter_game_handler = preload("res://scripts/input/handlers/player_enter_game_gamepad.gd").new(self.bag)
+    for device_id in self.devices:
+        device = self.devices[device_id]
+        if device extends self.gamepad_template:
+            device.register_handler(start_game_handler)
+            device.register_handler(enter_game_handler)
