@@ -5,7 +5,7 @@ var camera = preload("res://scenes/camera.tscn").instance()
 var true_camera_node
 var zoom
 
-const CAMERA_FIXED_Y = 140
+const CAMERA_FIXED_Y = 165
 
 func _init_bag(bag):
     self.bag = bag
@@ -15,7 +15,7 @@ func _init_bag(bag):
 func attach():
     self.bag.board.attach_object(self.camera)
     self.bag.processing.register(self)
-    self.set_pos(self.bag.positions.CAMERA_POS)
+    self.set_pos(Vector2(self.bag.positions.CAMERA_POS.x, self.CAMERA_FIXED_Y))
     self.true_camera_node.set_pos(Vector2(0, 0))
     self.true_camera_node.make_current()
 

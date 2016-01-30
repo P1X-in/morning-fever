@@ -37,7 +37,7 @@ func detach_object(object):
         return
 
     self.attached_objects.erase(object.get_instance_ID())
-    self.current_map.remove_child(object)
+    self.current_map.get_node('ysort').remove_child(object)
 
 func clear_all_objects():
     for object in self.attached_objects:
