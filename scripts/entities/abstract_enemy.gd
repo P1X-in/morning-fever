@@ -9,6 +9,7 @@ var attack_cooldown = 2
 var is_attack_on_cooldown = false
 var score = 0
 var drops_bottle = false
+var bottle_chance = 4
 
 var random_sounds = ['attack1', 'attack2']
 
@@ -105,4 +106,6 @@ func attack_cooled_down():
 
 func die():
     self.bag.enemies.del_enemy(self)
+    if self.drops_bottle and randi() % self.bottle_chance == 0:
+        self.bag.items.spawn_bottle(self.get_pos())
     .die()

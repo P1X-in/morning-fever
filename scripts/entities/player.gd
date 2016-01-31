@@ -150,7 +150,7 @@ func handle_items():
     if self.hp == self.max_hp:
         return
 
-    var pickups = self.bag.items.find_pickups_in_range(self, 5, self.facing)
+    var pickups = self.bag.items.find_pickups_in_range(self, 10, self.facing)
     for pickup in pickups:
         if self.hp == self.max_hp:
             break
