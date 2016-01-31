@@ -9,14 +9,15 @@ length = 0.4
 loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:visibility/visible")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ true, false ] }
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ 0, 1 ] }
 
 [node name="arrow" type="Sprite"]
 
-visibility/visible = false
 texture = ExtResource( 1 )
+hframes = 2
+frame = 1
 __meta__ = { "__editor_plugin_screen__":"2D" }
 
 [node name="anim" type="AnimationPlayer" parent="."]
