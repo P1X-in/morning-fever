@@ -11,3 +11,6 @@ func register():
 
 func hit():
     print('got hit')
+
+func reset():
+    return

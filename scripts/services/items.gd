@@ -2,6 +2,7 @@
 var bag
 
 var items = {}
+var pickups = {}
 
 func _init_bag(bag):
     self.bag = bag
