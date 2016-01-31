@@ -41,3 +41,4 @@ func reset():
     self.enemies.reset()
     self.battle.reset()
     self.board.reset()
+    self.items.reset()

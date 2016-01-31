@@ -64,10 +64,11 @@ func modify_position(delta):
 
     self.avatar.move(current_motion)
     if (self.avatar.is_colliding()):
+        var collider = self.avatar.get_collider()
         var normal = self.avatar.get_collision_normal()
         current_motion = normal.slide(current_motion)
         self.avatar.move(current_motion)
-        self.handle_collision(self.avatar.get_collider())
+        self.handle_collision(collider)
     self.flip(self.movement_vector[0])
     self.movement_vector[0] = current_motion.x
     self.movement_vector[1] = current_motion.y

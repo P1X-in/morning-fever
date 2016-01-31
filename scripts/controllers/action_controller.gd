@@ -8,7 +8,6 @@ func _init_bag(bag):
 func start_game():
     self.bag.intro.detach()
     self.bag.board.attach()
-    self.bag.hud.attach()
     self.bag.board.load_map('map1')
     self.bag.camera.attach()
     self.is_game_in_progress = true
@@ -19,7 +18,6 @@ func start_game():
 func end_game():
     self.is_game_in_progress = false
     self.bag.processing.remove(self)
-    self.bag.hud.detach()
     self.bag.board.detach()
     self.bag.intro.attach()
     self.bag.reset()
