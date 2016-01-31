@@ -9,7 +9,7 @@ func _ready():
     self.set_fixed_process(true)
 
     self.bag.intro.attach()
-    self.bag.sound.play_soundtrack('stage_2.2')
+    self.bag.sound.play_soundtrack('street')
 
 func _input(event):
     self.bag.input.handle_event(event)
