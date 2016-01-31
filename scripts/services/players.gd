@@ -45,3 +45,7 @@ func is_living_player_in_game():
 func reset():
     for player in self.players:
         player.reset()
+
+func stop_processing():
+    for player in self.players:
+        player.is_processing = false

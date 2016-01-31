@@ -2,6 +2,7 @@ extends "res://scripts/services/abstract_screen.gd"
 
 var board = preload("res://scenes/map/board.tscn")
 var mount
+var hud
 
 var current_map_data
 var current_map = null
@@ -9,10 +10,12 @@ var current_map = null
 var attached_objects = {}
 
 var battles = []
+var time_left
 
 func _init():
     self.screen_scene = preload("res://scenes/map/board.tscn").instance()
     self.mount = self.screen_scene.get_node('mount')
+    self.hud = self.screen_scene.get_node('hud')
 
 func reset():
     self.clear_all_objects()
@@ -27,6 +30,7 @@ func load_map(name):
     if not self.mount.is_a_parent_of(self.current_map):
         self.mount.add_child(self.current_map)
     self.queue_battles()
+    self.time_left = self.current_map_data.time_limit
 
 func unload_map():
     if current_map == null:

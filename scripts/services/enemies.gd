@@ -57,3 +57,7 @@ func find_enemies_in_range(object, reach, direction=null):
         found.append(enemy)
 
     return found
+
+func stop_processing():
+    for enemy in enemies_list:
+        self.enemies_list[enemy].is_processing = false

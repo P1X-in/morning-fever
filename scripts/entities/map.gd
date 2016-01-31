@@ -3,6 +3,7 @@ var scene
 var tilemap
 var battles = []
 var width
+var time_limit
 
 var TILE_WIDTH = 32
 

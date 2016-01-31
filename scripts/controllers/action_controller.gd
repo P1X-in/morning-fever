@@ -8,14 +8,18 @@ func _init_bag(bag):
 func start_game():
     self.bag.intro.detach()
     self.bag.board.attach()
+    self.bag.hud.attach()
     self.bag.board.load_map('map1')
     self.bag.camera.attach()
     self.is_game_in_progress = true
     self.bag.processing.register(self)
+    self.bag.hud.update_timer()
+    self.bag.timers.set_timeout(1, self, "track_time")
 
 func end_game():
     self.is_game_in_progress = false
     self.bag.processing.remove(self)
+    self.bag.hud.detach()
     self.bag.board.detach()
     self.bag.intro.attach()
     self.bag.reset()
@@ -37,6 +41,21 @@ func track_battles():
             continue
         if battle['distance'] <= distance:
             self.bag.battle.start(battle)
+
+func track_time():
+    if not self.is_game_in_progress:
+        return
+
+    if self.bag.board.time_left < 1:
+        self.is_game_in_progress = false
+        self.bag.enemies.stop_processing()
+        self.bag.players.stop_processing()
+        self.bag.timers.set_timeout(5, self, "end_game")
+        return
+
+    self.bag.board.time_left = self.bag.board.time_left - 1
+    self.bag.hud.update_timer()
+    self.bag.timers.set_timeout(1, self, "track_time")
 
 func player_died():
     if not self.bag.players.is_living_player_in_game():

@@ -5,6 +5,7 @@ func _init():
     self.scene = preload("res://scenes/map/city1.tscn").instance()
     self.tilemap = self.scene.get_node('background')
     self.calculate_width()
+    self.time_limit = 999
 
     self.battles = [
         { 'distance': 250, 'waves': [2, 3, 3] },

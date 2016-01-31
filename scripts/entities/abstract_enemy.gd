@@ -66,6 +66,9 @@ func randomize_movement_vector(vector):
     return Vector2(vector.x + rand_range(0, range_x), vector.y + rand_range(0, range_y))
 
 func process(delta):
+    if not self.is_processing:
+        return
+
     self.reset_movement()
     self.process_ai()
     .process(delta)

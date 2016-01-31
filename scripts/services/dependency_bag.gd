@@ -15,6 +15,7 @@ var positions = preload("res://scripts/entities/positions.gd").new()
 var players = preload("res://scripts/services/players.gd").new()
 var enemies = preload("res://scripts/services/enemies.gd").new()
 var battle = preload("res://scripts/services/battle.gd").new()
+var hud = preload("res://scripts/services/hud.gd").new()
 
 func _init(root_node):
     self.root = root_node
@@ -30,6 +31,7 @@ func _init(root_node):
     self.players._init_bag(self)
     self.enemies._init_bag(self)
     self.battle._init_bag(self)
+    self.hud._init_bag(self, self.board.hud)
 
 func reset():
     self.camera.detach()
