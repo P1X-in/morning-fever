@@ -3,7 +3,8 @@ var bag
 var enemies_list = {}
 
 var templates = {
-    'bum' : preload('res://scripts/entities/bum.gd')
+    'bum' : preload('res://scripts/entities/bum.gd'),
+    'rat' : preload('res://scripts/entities/rat.gd'),
 }
 
 func _init_bag(bag):
