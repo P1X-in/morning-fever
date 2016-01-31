@@ -29,7 +29,10 @@ func _init(bag, player_id).(bag):
     self.MOVEMENT_SPEED_CAP = 2.5
     self.free_avatar = false
 
-    self.avatar = preload("res://scenes/entities/p1.tscn").instance()
+    if player_id == 0:
+        self.avatar = preload("res://scenes/entities/p1.tscn").instance()
+    else:
+        self.avatar = preload("res://scenes/entities/p2.tscn").instance()
     self.body = self.avatar.get_node('body')
     self.animations = self.avatar.get_node('anim')
 

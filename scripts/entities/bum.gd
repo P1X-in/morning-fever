@@ -1,7 +1,7 @@
 extends "res://scripts/entities/abstract_enemy.gd"
 
 func _init(bag).(bag):
-    self.avatar = preload("res://scenes/entities/p1.tscn").instance()
+    self.avatar = preload("res://scenes/entities/skinhead.tscn").instance()
     self.body = self.avatar.get_node('body')
     self.animations = self.avatar.get_node('anim')
     self.score = 120
