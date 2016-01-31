@@ -14,6 +14,7 @@ func register():
     self.bag.items.add(self)
 
 func hit():
+    self.bag.sound.play('con_hit')
     if self.open:
         return
 
