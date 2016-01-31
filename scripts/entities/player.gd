@@ -137,6 +137,8 @@ func handle_animations():
         else:
             if not self.animations.is_playing():
                 self.animate('idle')
+    if self.animations.get_current_animation() == 'walk' and self.movement_vector[0] == 0 and self.movement_vector[1] == 0:
+        self.animate('idle')
 
 
 func handle_items():
