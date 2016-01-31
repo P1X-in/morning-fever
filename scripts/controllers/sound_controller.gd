@@ -6,14 +6,20 @@ var sample_player = SamplePlayer.new()
 var sound_volume = 0.5
 var music_volume = 1.0
 
-var samples = []
+var samples = [
+    ['attack1', preload('res://scenes/sounds/fx/attack1.wav')],
+    ['attack2', preload('res://scenes/sounds/fx/attack2.wav')],
+]
 
-var soundtracks = {}
+var soundtracks = {
+    'stage_2.2' : preload("res://scenes/sounds/soundtrack/stage_2.2.ogg")
+}
 
 func _init_bag(bag, mount):
     self.bag = bag
     mount.add_child(self.sample_player)
     mount.add_child(self.stream_player)
+    self.sample_player.set_sample_library(SampleLibrary.new())
 
     sample_player.set_default_volume_db(self.sound_volume)
     self.load_samples()

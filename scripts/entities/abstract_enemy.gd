@@ -3,15 +3,20 @@ extends "res://scripts/entities/moving_object.gd"
 var destination = [0, 0]
 var target = null
 var aggro_range = 500
-var attack_range = 10
+var attack_range = 15
 var attack_strength = 1
 var attack_cooldown = 2
 var is_attack_on_cooldown = false
 var score = 0
 
+var random_sounds = ['attack1', 'attack2']
+
 func _init(bag).(bag):
     self.velocity = 30
     self.MOVEMENT_SPEED_CAP = 3
+
+    self.sounds['attack1'] = 'attack1'
+    self.sounds['attack2'] = 'attack2'
 
 func go_to(x, y):
     self.destination[0] = x
@@ -86,7 +91,8 @@ func apply_axis_threshold(axis_value):
     return axis_value
 
 func attack():
-    self.play_sound('attack')
+    var i = randi() % self.random_sounds.size()
+    self.play_sound(self.random_sounds[i])
     self.is_attack_on_cooldown = true
     self.target.push_back(self)
     self.target.recieve_damage(self.attack_strength)
