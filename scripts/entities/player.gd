@@ -166,6 +166,8 @@ func attack(ability_name):
     self.is_attack_on_cooldown = true
     self.can_move = false
     self.bag.timers.set_timeout(self.attacks[ability_name].cooldown, self, "attack_cooled_down")
+    self.is_invulnerable = true
+    self.bag.timers.set_timeout(0.1, self, "loose_invulnerability")
 
 func attack_cooled_down():
     self.is_attack_on_cooldown = false
