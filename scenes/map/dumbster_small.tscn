@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/entities/dumbster.gd" type="Script" id=1]
-[ext_resource path="res://scenes/map/dumbster_smnall.png" type="Texture" id=2]
+[ext_resource path="res://scenes/gui/dumbster_smnall.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=6]
 
@@ -26,13 +26,14 @@ __meta__ = { "__editor_plugin_screen__":"2D" }
 
 [node name="body" type="Sprite" parent="."]
 
+transform/pos = Vector2( 1, -5 )
 texture = ExtResource( 2 )
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/pos = Vector2( 1, 8 )
 transform/rot = 90.0
-transform/scale = Vector2( 1, 1 )
 shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
