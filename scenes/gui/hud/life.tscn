@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scenes/gui/hud/hud_background.png" type="Texture" id=1]
+[ext_resource path="res://scenes/gui/hud/gui_hearths.png" type="Texture" id=2]
+[ext_resource path="res://scenes/fonts/courier_prime_16.fnt" type="Font" id=3]
+
+[node name="hearths" type="Control"]
+
+margin/right = 16.0
+margin/bottom = 16.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "__editor_plugin_screen__":"2D" }
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( -5, 16 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="Sprite1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 5, 16 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="hearth" type="Sprite" parent="."]
+
+transform/pos = Vector2( -16, 4 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+hframes = 3
+frame = 2
+
+[node name="Label" type="Label" parent="."]
+
+margin/left = -9.0
+margin/top = -1.0
+margin/right = 11.0
+margin/bottom = 14.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "P1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
