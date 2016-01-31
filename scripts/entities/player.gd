@@ -146,12 +146,16 @@ func handle_animations():
     if self.animations.get_current_animation() == 'walk' and self.movement_vector[0] == 0 and self.movement_vector[1] == 0:
         self.animate('idle')
 
-
 func handle_items():
-    return
+    if self.hp == self.max_hp:
+        return
 
-func check_colisions():
-    return
+    var pickups = self.bag.items.find_pickups_in_range(self, 5, self.facing)
+    for pickup in pickups:
+        if self.hp == self.max_hp:
+            break
+        self.set_hp(self.hp + 1)
+        self.bag.items.despawn_bottle(pickup)
 
 func reset():
     self.hp = self.max_hp

@@ -8,6 +8,7 @@ var attack_strength = 1
 var attack_cooldown = 2
 var is_attack_on_cooldown = false
 var score = 0
+var drops_bottle = false
 
 var random_sounds = ['attack1', 'attack2']
 

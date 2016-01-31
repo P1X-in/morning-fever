@@ -7,6 +7,7 @@ func _init(bag).(bag):
     self.score = 120
     self.max_hp = 3
     self.hp = 3
+    self.drops_bottle = true
 
 func attack():
     .attack()
