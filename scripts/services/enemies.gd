@@ -2,11 +2,15 @@
 var bag
 var enemies_list = {}
 
+var types = {
+    'bums' : ['bum1'],
+    'rats' : ['rat1', 'rat2', 'rat3']
+}
 var templates = {
-    'bum' : preload('res://scripts/entities/bum.gd'),
-    'rat' : preload('res://scripts/entities/rat.gd'),
+    'bum1' : preload('res://scripts/entities/bum.gd'),
+    'rat1' : preload('res://scripts/entities/rat.gd'),
     'rat2' : preload('res://scripts/entities/rat2.gd'),
-    'rat3' : preload('res://scripts/entities/rat3.gd'),
+    'rat3' : preload('res://scripts/entities/rat3.gd')
 }
 
 func _init_bag(bag):
@@ -33,11 +37,25 @@ func spawn(name, position):
     self.add_enemy(new_enemy)
     new_enemy.spawn(position)
 
-func spawn_wave(size):
+func spawn_dumpster_rats(size, dumpster_position):
     var position
+    randomize()
+    var units = self.types['rats']
+    var count = units.size()
+
+    for i in range(size):
+        position = self.bag.positions.get_random_initial_enemy_position(dumpster_position, 'near')
+        self.spawn(units[randi() % count], position)
+
+func spawn_wave(size, wave_type='bums'):
+    var position
+    randomize()
+    var units = self.types[wave_type]
+    var count = units.size()
+
     for i in range(size):
         position = self.bag.positions.get_random_initial_enemy_position(self.bag.camera.get_pos())
-        self.spawn('bum', position)
+        self.spawn(units[randi() % count], position)
 
 func find_enemies_in_range(object, reach, direction=null):
     var enemy

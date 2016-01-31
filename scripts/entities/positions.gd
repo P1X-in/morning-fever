@@ -6,9 +6,14 @@ var players = [
     Vector2(-80, 40)
 ]
 
-func get_random_initial_enemy_position(camera_position):
-    var side_offset = 200
-    var top_offset = 140
+var offsets = {
+    'near' : {'side_offset' : 2, 'top_offset' : 140},
+    'far' : {'side_offset' : 200, 'top_offset' : 140}
+}
+
+func get_random_initial_enemy_position(position, offset_type='far'):
+    var side_offset = self.offsets[offset_type]['side_offset']
+    var top_offset = self.offsets[offset_type]['top_offset']
     var belt_width = 80
     var shoulder_width = 40
 
@@ -21,4 +26,4 @@ func get_random_initial_enemy_position(camera_position):
     if side == 0:
         side_offset = -side_offset
 
-    return Vector2(camera_position.x + side_offset, top_offset + height)
+    return Vector2(position.x + side_offset, top_offset + height)

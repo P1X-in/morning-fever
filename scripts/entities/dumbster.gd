@@ -7,6 +7,7 @@ var open = false
 
 func _ready():
     self.bag = self.get_node('/root/game').bag
+    self.body = self.get_node('body')
     self.register()
 
 func register():
@@ -18,7 +19,9 @@ func hit():
 
     self.body.set_frame(1)
     self.bag.items.spawn_bottle(self.get_pos() + self.bottle_position)
+    self.bag.enemies.spawn_dumpster_rats(2, self.get_pos())
     self.open = true
+
 
 func reset():
     self.body.set_frame(0)
