@@ -147,6 +147,7 @@ func handle_animations():
     if not self.animations.is_playing() or self.animations.get_current_animation() == 'idle':
         if self.movement_vector[0] != 0 or self.movement_vector[1] != 0:
             self.animate('walk')
+            self.bag.sound.play('step')
         else:
             if not self.animations.is_playing():
                 self.animate('idle')

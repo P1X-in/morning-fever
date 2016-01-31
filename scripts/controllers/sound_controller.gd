@@ -18,6 +18,7 @@ var samples = [
     ['pain2', preload('res://scenes/sounds/fx/pain_ugh.wav')],
     ['pain3', preload('res://scenes/sounds/fx/pain_uh.wav')],
     ['con_hit', preload('res://scenes/sounds/fx/con_hit.wav')],
+    ['step', preload('res://scenes/sounds/fx/step.wav')],
 ]
 
 var soundtracks = {
