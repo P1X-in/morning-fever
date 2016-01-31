@@ -60,7 +60,7 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.001
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = { "__editor_plugin_screen__":"Script" }
 
 [node name="body" type="Sprite" parent="."]
 
@@ -90,5 +90,19 @@ transform/rot = 90.0
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="anim1" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+anims/kick = SubResource( 3 )
+anims/punch = SubResource( 4 )
+anims/walk = SubResource( 5 )
+playback/active = true
+playback/speed = 3.0
+blend_times = [  ]
+autoplay = "idle"
 
 
