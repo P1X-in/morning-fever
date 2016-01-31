@@ -14,6 +14,7 @@ func start_game():
     self.bag.processing.register(self)
     self.bag.hud.update_timer()
     self.bag.timers.set_timeout(1, self, "track_time")
+    self.bag.sound.play_soundtrack('street')
 
 func end_game():
     self.is_game_in_progress = false
@@ -21,6 +22,7 @@ func end_game():
     self.bag.board.detach()
     self.bag.intro.attach()
     self.bag.reset()
+    self.bag.sound.play_soundtrack('menu')
 
 func process(delta):
     self.track_battles()

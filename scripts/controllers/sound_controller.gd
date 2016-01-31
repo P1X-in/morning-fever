@@ -16,7 +16,8 @@ var samples = [
 
 var soundtracks = {
     'stage_2.2' : preload("res://scenes/sounds/soundtrack/stage_2.2.ogg"),
-    'street' : preload("res://scenes/sounds/soundtrack/street_stage.ogg")
+    'street' : preload("res://scenes/sounds/soundtrack/street_stage.ogg"),
+    'menu' : preload("res://scenes/sounds/soundtrack/menu_song.ogg")
 }
 
 func _init_bag(bag, mount):

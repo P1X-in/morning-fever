@@ -98,6 +98,7 @@ func enter_game():
     self.is_playing = true
     entry_position = self.bag.camera.get_pos() + self.bag.positions.players[self.player_id]
     self.spawn(entry_position)
+    self.bag.hud.update_player_hp(self.player_id, self.hp)
 
 func spawn(position):
     self.is_alive = true
@@ -193,3 +194,9 @@ func recieve_damage(damage):
 
 func loose_invulnerability():
     self.is_invulnerable = false
+
+func set_hp(hp):
+    if hp < 0:
+        hp = 0
+    self.bag.hud.update_player_hp(self.player_id, hp)
+    .set_hp(hp)
