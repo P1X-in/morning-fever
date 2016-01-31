@@ -8,6 +8,8 @@ func _init(bag).(bag):
     self.max_hp = 1
     self.hp = 1
     self.dying_sounds = ['rat_die']
+    for cry in self.dying_sounds:
+        self.sounds[cry] = cry
 
 func attack():
     .attack()
