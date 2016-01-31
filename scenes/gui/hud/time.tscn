@@ -25,14 +25,22 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 __meta__ = { "__editor_plugin_screen__":"2D" }
 
+[node name="Sprite1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 17, 16 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, 16 )
+transform/pos = Vector2( -15, 16 )
 texture = ExtResource( 1 )
+hframes = 2
 
 [node name="clock" type="Sprite" parent="."]
 
-transform/pos = Vector2( -49, -1 )
+transform/pos = Vector2( -39, -1 )
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
@@ -52,16 +60,16 @@ autoplay = "klikklak"
 
 [node name="time_string" type="Label" parent="."]
 
-margin/left = -17.0
-margin/top = 7.0
-margin/right = 43.0
-margin/bottom = 22.0
+margin/left = 1.0
+margin/top = 8.0
+margin/right = 31.0
+margin/bottom = 23.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "999:99"
+text = "999"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scenes/gui/hud/hud_background.png" type="Texture" id=1]
-[ext_resource path="res://scenes/gui/hud/gui_hearths.png" type="Texture" id=2]
+[ext_resource path="res://scenes/gui/bottles.png" type="Texture" id=2]
 [ext_resource path="res://scenes/fonts/courier_prime_16.fnt" type="Font" id=3]
 
 [node name="hearths" type="Control"]
@@ -29,12 +29,12 @@ frame = 2
 
 [node name="hearth" type="Sprite" parent="."]
 
-transform/pos = Vector2( -16, 4 )
+transform/pos = Vector2( -17, 32 )
+transform/rot = 90.0
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
-hframes = 3
-frame = 2
+hframes = 5
 
 [node name="Label" type="Label" parent="."]
 
