@@ -95,18 +95,30 @@ sort/enabled = true
 
 [node name="cola" parent="ysort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 98, 146 )
+transform/pos = Vector2( 98, 141 )
 
 [node name="dumbster" parent="ysort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 587, 139 )
+transform/pos = Vector2( 773, 181 )
 
 [node name="dumbster1" parent="ysort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 899, 154 )
+transform/pos = Vector2( 2037, 151 )
 
 [node name="dumbster2" parent="ysort" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 170, 187 )
+
+[node name="dumbster3" parent="ysort" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1479, 192 )
+
+[node name="dumbster4" parent="ysort" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1984, 154 )
+
+[node name="cola1" parent="ysort" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 945, 136 )
 
 
