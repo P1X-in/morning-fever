@@ -9,15 +9,31 @@ __meta__ = { "__editor_plugin_screen__":"2D" }
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/pos = Vector2( 0, -27 )
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="."]
 
 margin/left = -59.0
-margin/top = -65.0
+margin/top = -55.0
 margin/right = 65.0
-margin/bottom = -42.0
+margin/bottom = -32.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "YOU LOSE!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="."]
+
+margin/left = -59.0
+margin/top = -55.0
+margin/right = 65.0
+margin/bottom = -32.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2

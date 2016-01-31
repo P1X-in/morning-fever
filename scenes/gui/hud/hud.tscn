@@ -42,6 +42,7 @@ transform/pos = Vector2( 121.843, 109.1 )
 
 [node name="lose" parent="." instance=ExtResource( 4 )]
 
+visibility/visible = false
 transform/pos = Vector2( 0, 127.5 )
 
 
