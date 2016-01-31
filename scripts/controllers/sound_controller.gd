@@ -14,6 +14,9 @@ var samples = [
     ['punch3', preload('res://scenes/sounds/fx/punch_3.wav')],
     ['rat_hit', preload('res://scenes/sounds/fx/rat_hit.wav')],
     ['rat_die', preload('res://scenes/sounds/fx/rat_die.wav')],
+    ['pain1', preload('res://scenes/sounds/fx/pain_ah.wav')],
+    ['pain2', preload('res://scenes/sounds/fx/pain_ugh.wav')],
+    ['pain3', preload('res://scenes/sounds/fx/pain_uh.wav')],
 ]
 
 var soundtracks = {

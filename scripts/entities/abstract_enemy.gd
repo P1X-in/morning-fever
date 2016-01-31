@@ -12,13 +12,17 @@ var drops_bottle = false
 var bottle_chance = 4
 
 var random_sounds = ['attack1', 'attack2']
+var dying_sounds = ['pain1', 'pain2', 'pain3']
 
 func _init(bag).(bag):
     self.velocity = 30
     self.MOVEMENT_SPEED_CAP = 3
 
-    self.sounds['attack1'] = 'attack1'
-    self.sounds['attack2'] = 'attack2'
+    for attack in self.random_sounds:
+        self.sounds[attack] = attack
+    for cry in self.dying_sounds:
+        self.sounds[cry] = cry
+
 
 func go_to(x, y):
     self.destination[0] = x
@@ -108,4 +112,8 @@ func die():
     self.bag.enemies.del_enemy(self)
     if self.drops_bottle and randi() % self.bottle_chance == 0:
         self.bag.items.spawn_bottle(self.get_pos())
+
+    var i = randi() % self.dying_sounds.size()
+    self.play_sound(self.dying_sounds[i])
+
     .die()

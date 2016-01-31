@@ -20,6 +20,8 @@ var is_attack_on_cooldown = false
 var input_handlers = []
 var key_handlers = []
 
+var dying_sounds = ['pain1', 'pain2', 'pain3']
+
 func _init(bag, player_id).(bag):
     self.bag = bag
     self.player_id = player_id
@@ -28,6 +30,9 @@ func _init(bag, player_id).(bag):
     self.max_hp = 10
     self.MOVEMENT_SPEED_CAP = 2.5
     self.free_avatar = false
+
+    for cry in self.dying_sounds:
+        self.sounds[cry] = cry
 
     if player_id == 0:
         self.avatar = preload("res://scenes/entities/p1.tscn").instance()
@@ -107,6 +112,8 @@ func spawn(position):
 func die():
     self.is_alive = false
     self.bag.action.player_died()
+    var i = randi() % self.dying_sounds.size()
+    self.play_sound(self.dying_sounds[i])
     .die()
 
 func process(delta):

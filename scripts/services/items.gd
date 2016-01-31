@@ -13,6 +13,8 @@ func reset():
     for item in self.items:
         self.items[item].reset()
 
+    for pickup_id in self.pickups:
+        self.pickups[pickup_id].despawn()
     self.pickups.clear()
 
 func spawn_bottle(position):
