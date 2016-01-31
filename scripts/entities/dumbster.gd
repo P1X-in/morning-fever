@@ -20,6 +20,7 @@ func hit():
     self.body.set_frame(1)
     self.bag.items.spawn_bottle(self.get_pos() + self.bottle_position)
     self.bag.enemies.spawn_dumpster_rats(2, self.get_pos())
+    self.bag.sound.play('rat_hit')
     self.open = true
 
 
