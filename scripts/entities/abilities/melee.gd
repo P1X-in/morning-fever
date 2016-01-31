@@ -10,6 +10,7 @@ func _init(bag, using_entity).(bag, using_entity):
 
 func use():
     var enemies = self.find_enemies_in_range()
+    var items = self.find_items_in_range()
 
     for enemy in enemies:
         enemy.recieve_damage(self.power)
@@ -18,5 +19,12 @@ func use():
         if self.push_back:
             enemy.push_back(self.using_entity, self.power)
 
+    for item in items:
+        item.hit()
+
+
 func find_enemies_in_range():
     return self.bag.enemies.find_enemies_in_range(self.using_entity, self.reach, self.using_entity.facing)
+
+func find_items_in_range():
+    return self.bag.items.find_items_in_range(self.using_entity, self.reach, self.using_entity.facing)
