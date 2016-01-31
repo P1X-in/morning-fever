@@ -51,6 +51,7 @@ func track_time():
         self.is_game_in_progress = false
         self.bag.enemies.stop_processing()
         self.bag.players.stop_processing()
+        self.bag.hud.hide_arrow()
         self.bag.timers.set_timeout(5, self, "end_game")
         return
 
@@ -62,4 +63,5 @@ func track_time():
 
 func player_died():
     if not self.bag.players.is_living_player_in_game():
+        self.bag.hud.hide_arrow()
         self.bag.timers.set_timeout(5, self, "end_game")
