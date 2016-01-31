@@ -14,6 +14,12 @@ func _init():
     self.screen_scene = preload("res://scenes/map/board.tscn").instance()
     self.mount = self.screen_scene.get_node('mount')
 
+func reset():
+    self.clear_all_objects()
+    self.unload_map()
+    self.current_map_data = null
+    self.battles = []
+
 func load_map(name):
     self.unload_map()
     self.current_map_data = self.bag.maps.maps[name]

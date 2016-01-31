@@ -30,3 +30,10 @@ func _init(root_node):
     self.players._init_bag(self)
     self.enemies._init_bag(self)
     self.battle._init_bag(self)
+
+func reset():
+    self.camera.detach()
+    self.players.reset()
+    self.enemies.reset()
+    self.battle.reset()
+    self.board.reset()

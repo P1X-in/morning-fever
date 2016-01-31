@@ -27,3 +27,8 @@ func spawn_next_wave():
 func end():
     self.in_progress = false
     self.bag.camera.unlock()
+
+func reset():
+    self.in_progress = false
+    self.current_battle = null
+    self.wave = 0

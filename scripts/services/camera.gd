@@ -22,8 +22,9 @@ func attach():
     self.true_camera_node.make_current()
 
 func detach():
-    self.bag.board.detach(self.camera)
+    self.bag.board.detach_object(self.camera)
     self.bag.processing.remove(self)
+    self.unlock()
 
 func get_pos():
     return self.camera.get_pos()

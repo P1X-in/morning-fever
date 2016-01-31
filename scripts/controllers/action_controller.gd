@@ -14,11 +14,11 @@ func start_game():
     self.bag.processing.register(self)
 
 func end_game():
+    self.is_game_in_progress = false
     self.bag.processing.remove(self)
     self.bag.board.detach()
-    self.bag.board.unload_map()
     self.bag.intro.attach()
-    self.is_game_in_progress = false
+    self.bag.reset()
 
 func process(delta):
     self.track_battles()
@@ -37,3 +37,7 @@ func track_battles():
             continue
         if battle['distance'] <= distance:
             self.bag.battle.start(battle)
+
+func player_died():
+    if not self.bag.players.is_living_player_in_game():
+        self.bag.timers.set_timeout(5, self, "end_game")

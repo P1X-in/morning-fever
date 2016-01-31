@@ -2,6 +2,7 @@ var bag
 
 var avatar
 var is_processing = false
+var free_avatar = true
 var initial_position = Vector2(0, 0)
 
 var sounds = {}
@@ -20,7 +21,8 @@ func spawn(position):
 func despawn():
     self.is_processing = false
     self.detach()
-    self.avatar.queue_free()
+    if self.free_avatar:
+        self.avatar.queue_free()
 
 func attach():
     self.is_processing = true

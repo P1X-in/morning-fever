@@ -24,8 +24,13 @@ func remove(object):
     var wrapper = self.objects[object.get_instance_ID()]
     wrapper.kill()
     self.container.remove_child(wrapper)
-    self.objects.erase(wrapper)
+    self.objects.erase(object.get_instance_ID())
 
 func reset():
+    var wrapper
     for id in self.objects:
-        self.remove(self.objects[id])
+        wrapper = self.objects[id]
+        self.container.remove_child(wrapper)
+        wrapper.kill()
+    self.objects.clear()
+

@@ -27,6 +27,7 @@ func _init(bag, player_id).(bag):
     self.hp = 10
     self.max_hp = 10
     self.MOVEMENT_SPEED_CAP = 2.5
+    self.free_avatar = false
 
     self.avatar = preload("res://scenes/entities/bum.tscn").instance()
     self.body = self.avatar.get_node('body')
@@ -56,6 +57,14 @@ func bind_keyboard():
     self.keyboard_use = true
     for handler in self.key_handlers:
         keyboard.register_handler(handler)
+func unbind_keyboard():
+    if not self.keyboard_use:
+        return
+
+    var keyboard = self.bag.input.devices['keyboard']
+    self.keyboard_use = false
+    for handler in self.key_handlers:
+        keyboard.remove_handler(handler)
 
 func bind_gamepad(id):
     self.unbind_gamepad()
@@ -88,9 +97,12 @@ func spawn(position):
 
 func die():
     self.is_alive = false
+    self.bag.action.player_died()
     .die()
 
 func process(delta):
+    if not self.is_processing:
+        return
     .process(delta)
     self.handle_items()
     self.handle_animations()
@@ -138,7 +150,13 @@ func reset():
     self.controller_vector = [0, 0]
     self.score = 0
     self.is_attack_on_cooldown = false
+    self.is_stunned = false
+    self.can_move = true
+    self.is_invulnerable = false
+    self.unbind_gamepad()
+    self.unbind_keyboard()
     self.despawn()
+    self.animations.stop()
 
 func attack(ability_name):
     if self.is_attack_on_cooldown:
