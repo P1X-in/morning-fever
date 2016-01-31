@@ -12,4 +12,7 @@ func _init(bag).(bag):
 
 func attack():
     .attack()
-    self.animate('punch')
+    if randf() < 0.4:
+        self.animate('kick')
+    else:
+        self.animate('punch')
