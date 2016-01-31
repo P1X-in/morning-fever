@@ -51,8 +51,10 @@ func track_time():
         self.bag.timers.set_timeout(5, self, "end_game")
         return
 
-    self.bag.board.time_left = self.bag.board.time_left - 1
-    self.bag.hud.update_timer()
+    if self.bag.players.is_living_player_in_game():
+        self.bag.board.time_left = self.bag.board.time_left - 1
+        self.bag.hud.update_timer()
+
     self.bag.timers.set_timeout(1, self, "track_time")
 
 func player_died():
