@@ -5,7 +5,7 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 5.0
+radius = 6.0
 height = 14.0
 
 [node name="cola" type="StaticBody2D"]

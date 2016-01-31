@@ -3,16 +3,17 @@
 [ext_resource path="res://scripts/entities/dumbster.gd" type="Script" id=1]
 [ext_resource path="res://scenes/map/dumbster_smnall.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=6]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7, 16 )
+radius = 8.0
+height = 22.0
 
 [node name="dumbster" type="StaticBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, -1.19209e-07, 8 )
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 1, 8 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -29,9 +30,10 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -1.19209e-07, 8 )
+transform/pos = Vector2( 1, 8 )
 transform/rot = 90.0
-shape = SubResource( 1 )
+transform/scale = Vector2( 1, 1 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
