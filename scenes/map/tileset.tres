@@ -148,4 +148,20 @@
 17/navigation_offset = Vector2( 16, 32 )
 17/shape_offset = Vector2( 0, 0 )
 17/shapes = [  ]
+18/name = "Sprite19"
+18/texture = ExtResource( 1 )
+18/tex_offset = Vector2( 0, 0 )
+18/region = Rect2( 64, 64, 32, 64 )
+18/occluder_offset = Vector2( 16, 32 )
+18/navigation_offset = Vector2( 16, 32 )
+18/shape_offset = Vector2( 0, 0 )
+18/shapes = [  ]
+19/name = "Sprite20"
+19/texture = ExtResource( 1 )
+19/tex_offset = Vector2( 0, 0 )
+19/region = Rect2( 64, 64, 32, 64 )
+19/occluder_offset = Vector2( 16, 32 )
+19/navigation_offset = Vector2( 16, 32 )
+19/shape_offset = Vector2( 0, 0 )
+19/shapes = [  ]
 
