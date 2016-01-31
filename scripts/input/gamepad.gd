@@ -8,6 +8,7 @@ func _init(device_id):
     self.device_id = device_id
 
 func handle_event(event):
+    print(event)
     var handler
     for handler_id in self.event_handlers:
         handler = self.event_handlers[handler_id]
