@@ -15,6 +15,7 @@ func start_game():
     self.bag.hud.update_timer()
     self.bag.timers.set_timeout(1, self, "track_time")
     self.bag.sound.play_soundtrack('street')
+    self.bag.hud.show_arrow()
 
 func end_game():
     self.is_game_in_progress = false

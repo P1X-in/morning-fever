@@ -15,6 +15,7 @@ func start(battle):
     self.wave = 0
     self.bag.camera.lock()
     self.bag.sound.play('fight')
+    self.bag.hud.hide_arrow()
 
 func spawn_next_wave():
     if self.wave >= self.current_battle['waves'].size():
@@ -28,6 +29,7 @@ func spawn_next_wave():
 func end():
     self.in_progress = false
     self.bag.camera.unlock()
+    self.bag.hud.show_arrow()
 
 func reset():
     self.in_progress = false
