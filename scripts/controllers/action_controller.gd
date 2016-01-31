@@ -16,6 +16,7 @@ func start_game():
     self.bag.timers.set_timeout(1, self, "track_time")
     self.bag.sound.play_soundtrack('street')
     self.bag.hud.show_arrow()
+    self.bag.hud.hide_loose()
 
 func end_game():
     self.is_game_in_progress = false
@@ -52,6 +53,7 @@ func track_time():
         self.bag.enemies.stop_processing()
         self.bag.players.stop_processing()
         self.bag.hud.hide_arrow()
+        self.bag.hud.show_loose()
         self.bag.timers.set_timeout(5, self, "end_game")
         return
 
@@ -64,4 +66,5 @@ func track_time():
 func player_died():
     if not self.bag.players.is_living_player_in_game():
         self.bag.hud.hide_arrow()
+        self.bag.hud.show_loose()
         self.bag.timers.set_timeout(5, self, "end_game")

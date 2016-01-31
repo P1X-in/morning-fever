@@ -5,6 +5,7 @@ var time_label
 var player_1_panel
 var player_2_panel
 var arrow
+var loose
 
 func _init_bag(bag, container):
     ._init_bag(bag, container)
@@ -13,6 +14,7 @@ func _init_bag(bag, container):
     self.player_1_panel = self.screen_scene.get_node('p1')
     self.player_2_panel = self.screen_scene.get_node('p2')
     self.arrow = self.screen_scene.get_node('arrow')
+    self.loose = self.screen_scene.get_node('lose')
 
 func set_timer(time_left):
     self.time_label.set_text(str(time_left))
@@ -42,3 +44,9 @@ func show_arrow():
 
 func hide_arrow():
     self.arrow.hide()
+
+func show_loose():
+    self.loose.show()
+
+func hide_loose():
+    self.loose.hide()
