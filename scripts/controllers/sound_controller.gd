@@ -9,6 +9,9 @@ var music_volume = 1.0
 var samples = [
     ['attack1', preload('res://scenes/sounds/fx/attack1.wav')],
     ['attack2', preload('res://scenes/sounds/fx/attack2.wav')],
+    ['punch1', preload('res://scenes/sounds/fx/punch_1.wav')],
+    ['punch2', preload('res://scenes/sounds/fx/punch_2.wav')],
+    ['punch3', preload('res://scenes/sounds/fx/punch_3.wav')],
 ]
 
 var soundtracks = {
@@ -21,6 +24,7 @@ func _init_bag(bag, mount):
     mount.add_child(self.sample_player)
     mount.add_child(self.stream_player)
     self.sample_player.set_sample_library(SampleLibrary.new())
+    self.sample_player.set_polyphony(10)
 
     sample_player.set_default_volume_db(self.sound_volume)
     self.load_samples()
