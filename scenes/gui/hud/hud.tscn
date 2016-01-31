@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scenes/gui/hud/life.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/gui/hud/time.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/gui/arrow.tscn" type="PackedScene" id=3]
 
 [node name="hud" type="Control"]
 
@@ -31,6 +32,10 @@ margin/right = 144.0
 [node name="Label" parent="p2"]
 
 text = "P2"
+
+[node name="arrow" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 121.843, 109.1 )
 
 
 [editable path="p2"]
