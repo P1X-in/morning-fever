@@ -54,6 +54,7 @@ func track_time():
         self.bag.players.stop_processing()
         self.bag.hud.hide_arrow()
         self.bag.hud.show_loose()
+        self.bag.sound.play_soundtrack('over')
         self.bag.timers.set_timeout(5, self, "end_game")
         return
 
@@ -67,4 +68,5 @@ func player_died():
     if not self.bag.players.is_living_player_in_game():
         self.bag.hud.hide_arrow()
         self.bag.hud.show_loose()
+        self.bag.sound.play_soundtrack('over')
         self.bag.timers.set_timeout(5, self, "end_game")
