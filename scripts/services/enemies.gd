@@ -3,11 +3,12 @@ var bag
 var enemies_list = {}
 
 var types = {
-    'bums' : ['bum1'],
+    'bums' : ['bum1', 'homeless'],
     'rats' : ['rat1', 'rat2', 'rat3']
 }
 var templates = {
     'bum1' : preload('res://scripts/entities/bum.gd'),
+    'homeless' : preload('res://scripts/entities/homeless.gd'),
     'rat1' : preload('res://scripts/entities/rat.gd'),
     'rat2' : preload('res://scripts/entities/rat2.gd'),
     'rat3' : preload('res://scripts/entities/rat3.gd')
